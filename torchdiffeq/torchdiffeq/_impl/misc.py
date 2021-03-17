@@ -44,11 +44,6 @@ def _select_initial_step(func, t0, y0, order, rtol, atol, norm, f0=None):
     device = y0.device
     t_dtype = t0.dtype
     t0 = t0.to(dtype)
-    #fl = open('file.txt', 'w')
-    #p#rint('This text will be written in the file', file = fl)
-    #fl.close()
-    #print(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
-    #warnings.warn(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
     if f0 is None:
         f0 = func(t0, y0)
 
@@ -300,7 +295,6 @@ def _check_inputs(func, y0, t, rtol, atol, method, options, event_fn, SOLVERS):
     # Backward compatibility: Allow t and y0 to be on different devices
     if t.device != y0.device:
         warnings.warn("t is not on the same device as y0. Coercing to y0.device.")
-        print(f't.device: {t.device} while y0 device is {y0.device}')
         t = t.to(y0.device)
     # ~Backward compatibility
 
