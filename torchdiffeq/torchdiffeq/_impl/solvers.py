@@ -22,9 +22,9 @@ class AdaptiveStepsizeODESolver(metaclass=abc.ABCMeta):
         raise NotImplementedError
 
     def integrate(self, t):
-        print(f'(in solvers.integrate): y0.device is {y0.device}')
         solution = torch.empty(len(t), *self.y0.shape, dtype=self.y0.dtype, device=self.y0.device)
         solution[0] = self.y0
+        print(f'(in solvers.integrate): y0.device is {y0.device}')
         t = t.to(self.dtype)
         self._before_integrate(t)
         for i in range(1, len(t)):
