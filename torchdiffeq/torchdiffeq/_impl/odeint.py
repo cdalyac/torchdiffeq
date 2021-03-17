@@ -73,6 +73,8 @@ def odeint(func, y0, t, *, rtol=1e-7, atol=1e-9, method=None, options=None, even
 
     solver = SOLVERS[method](func=func, y0=y0, rtol=rtol, atol=atol, **options)
 
+    print(f't.device: {t.device} while y0 device is {y0.device}')
+    
     if event_fn is None:
         solution = solver.integrate(t)
     else:
