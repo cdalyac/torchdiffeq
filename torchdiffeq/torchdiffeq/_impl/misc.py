@@ -47,8 +47,8 @@ def _select_initial_step(func, t0, y0, order, rtol, atol, norm, f0=None):
     #fl = open('file.txt', 'w')
     #p#rint('This text will be written in the file', file = fl)
     #fl.close()
-    print(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
-    warnings.warn(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
+    #print(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
+    #warnings.warn(f'(in misc._select_initial_step): (y0.device,t0.device is {y0.device,t0.device}')
     if f0 is None:
         f0 = func(t0, y0)
 
